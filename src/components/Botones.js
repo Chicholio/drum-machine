@@ -37,38 +37,36 @@ const PCadenaTexto = styled.p`
 
 const Botones = () => {
 
-    const handleClick = (e) => {
-        e.target.firstElementChild.play()
-        let display = document.getElementById("display")
-        display.textContent = e.target.name
-      }
-    
-      const handleKeyUp = (e) => {
-        let button = document.getElementById(`${e.keyCode}`)
-        if (button) {
-          button.firstElementChild.play()
-          let display = document.getElementById("display")
-          display.textContent = button.name
-        }
-      }
-    
-      document.addEventListener("keyup", handleKeyUp)
+  const handleClick = (e) => {
+    e.target.firstElementChild.play()
+    let display = document.getElementById("display")
+    display.textContent = e.target.name
+  }
+  
+  document.addEventListener("keyup", (e) => {
+    let button = document.getElementById(`${e.keyCode}`)
+    if (button) {
+      button.firstElementChild.play()
+      let display = document.getElementById("display")
+      display.textContent = button.name
+    }
+  })
 
-    return (
-        <DivPrincipal>
-            <DivDrumMachine id="drum-machine" >
-                {
-                    SoundsDB.map(sounds =>
-                        <Button className="drum-pad" id={sounds.keyCode} name={sounds.id} key={sounds.id} onClick={handleClick}>
-                            {sounds.keyTrigger}
-                            <audio id={sounds.keyTrigger} className="clip" src={sounds.url} />
-                        </Button>
-                    )
-                }
-            </DivDrumMachine>
-            <PCadenaTexto id="display" >Sonidos</PCadenaTexto>
-        </DivPrincipal>
-    )
+  return (
+    <DivPrincipal>
+      <DivDrumMachine id="drum-machine" >
+        {
+          SoundsDB.map(sounds =>
+            <Button className="drum-pad" id={sounds.keyCode} name={sounds.id} key={sounds.id} onClick={handleClick}>
+              {sounds.keyTrigger}
+              <audio id={sounds.keyTrigger} className="clip" src={sounds.url} />
+            </Button>
+          )
+        }
+      </DivDrumMachine>
+      <PCadenaTexto id="display" >Sonidos</PCadenaTexto>
+    </DivPrincipal>
+  )
 }
 
 export default Botones
