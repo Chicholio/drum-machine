@@ -4,22 +4,29 @@ import styled from 'styled-components'
 
 const DivPrincipal = styled.div`
   text-align: center;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 600px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 const DivDrumMachine = styled.p`
-  background-color: gray;
+  background-color: #cd93d8;
   width: 250px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  border: solid;
+  border: solid black;
+`
+const DivParrafoMachine = styled.p`
+  background-color: gray;
+  font-size: 30px;
 `
 
 const Button = styled.button`
-  background-color: black;
+  background-color: #572364;
   color: white;
   width: 63px;
   height: 63px;
@@ -28,11 +35,10 @@ const Button = styled.button`
 
 const PCadenaTexto = styled.p`
   border: solid black;
-  background-color: gray;
+  background-color: #cd93d8;
   color: white;
   width: 100px;
   height: 20px;
-  margin-left: 70px;
 `
 
 const Botones = () => {
@@ -54,6 +60,8 @@ const Botones = () => {
 
   return (
     <DivPrincipal>
+      <DivParrafoMachine>Drum Machine</DivParrafoMachine>
+      <DivParrafoMachine>Mauricio Londoño Cianci</DivParrafoMachine>
       <DivDrumMachine id="drum-machine" >
         {
           SoundsDB.map(sounds =>

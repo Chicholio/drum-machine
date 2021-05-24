@@ -8,7 +8,7 @@ const DivPrincipal = styled.div`
 
 const App = () => {
   return (
-    <DivPrincipal>
+    <DivPrincipal style={{background: 'gray'}}>
       <Botones />
     </DivPrincipal>
   )
